@@ -9,3 +9,5 @@ coverage
 verification-*.png
 .env*
 !.env.example
+
+.vercel
