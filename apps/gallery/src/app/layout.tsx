@@ -8,6 +8,7 @@ const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Frontend — Yuvraj Kashyap",
   description: "An open-source archive of interfaces, interactions, and frontend experiments.",
+  metadataBase: new URL("https://gallery-yuvraj-kashyaps-projects.vercel.app"),
   openGraph: {
     title: "Frontend — Yuvraj Kashyap",
     description: "A growing open-source frontend archive. Browse it, fork it, use it.",
