@@ -1,0 +1,66 @@
+.kinetic-field {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  isolation: isolate;
+  color: #f4f0e8;
+  background: #173dff;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: crosshair;
+}
+.kinetic-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .32;
+  background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-size: 8.333% 12.5%;
+  mask-image: radial-gradient(circle 35% at var(--x) var(--y), black, transparent);
+}
+.kinetic-orbit {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: min(34vw, 440px);
+  aspect-ratio: 1;
+  border: 1px solid #f4f0e8;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: left .16s cubic-bezier(.22, 1, .36, 1), top .16s cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+}
+.kinetic-orbit::before, .kinetic-orbit::after { content: ""; position: absolute; background: #f4f0e8; }
+.kinetic-orbit::before { left: 50%; top: -9px; width: 1px; height: calc(100% + 18px); }
+.kinetic-orbit::after { top: 50%; left: -9px; height: 1px; width: calc(100% + 18px); }
+.kinetic-label { position: absolute; inset: 24px 28px auto; display: flex; justify-content: space-between; font: 700 10px/1 monospace; letter-spacing: .05em; text-transform: uppercase; }
+.kinetic-words { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.kinetic-words span {
+  --tx: 0px;
+  --ty: 0px;
+  display: block;
+  font-size: clamp(62px, 13vw, 210px);
+  font-weight: 900;
+  line-height: .69;
+  letter-spacing: -.085em;
+  transform: translate(var(--tx), var(--ty));
+  transition: transform .22s cubic-bezier(.22, 1, .36, 1), color .2s ease;
+}
+.kinetic-words span:nth-child(even) { color: #ffb7e4; }
+.kinetic-coordinates { position: absolute; left: 28px; right: 28px; bottom: 24px; display: flex; align-items: center; gap: 10px; font: 700 10px/1 monospace; }
+.kinetic-coordinates i { height: 1px; flex: 1; background: currentColor; }
+.kinetic-field.is-compact .kinetic-label, .kinetic-field.is-compact .kinetic-coordinates { font-size: 8px; }
+
+@media (max-width: 700px) {
+  .kinetic-label { inset: 16px 16px auto; }
+  .kinetic-coordinates { left: 16px; right: 16px; bottom: 16px; }
+  .kinetic-orbit { width: 55vw; }
+  .kinetic-words span { font-size: clamp(64px, 19vw, 112px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-orbit, .kinetic-words span { transition: none; }
+}

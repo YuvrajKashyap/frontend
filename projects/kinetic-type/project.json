@@ -1,0 +1,7 @@
+{
+  "slug": "kinetic-type",
+  "name": "Kinetic Type",
+  "description": "A typographic field that bends toward the cursor.",
+  "year": 2026,
+  "tags": ["React", "CSS", "Pointer"]
+}

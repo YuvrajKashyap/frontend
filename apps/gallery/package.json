@@ -1,0 +1,24 @@
+{
+  "name": "@frontend/gallery",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "eslint src next.config.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@frontend/kinetic-type": "workspace:*",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "eslint": "^9.34.0",
+    "eslint-config-next": "^16.3.0",
+    "typescript": "^5.9.2"
+  }
+}
